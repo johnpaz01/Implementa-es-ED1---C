@@ -13,7 +13,8 @@ void sort(int vetor[], int n) {
 
 void printVetor(int v[], int n) {
     printf("\nIniciando Vetor!\n");
-    for (int i = 0; i < n; i++) {
+    int i;
+    for ( i = 0; i < n; i++) {
         printf("Vetor: [%d] = %d\n", i + 1, v[i]);
     }
     printf("\nVetor finalizado!\n");
@@ -21,7 +22,7 @@ void printVetor(int v[], int n) {
 
 int main() {
     FILE *file;
-    int tam = 1000;
+    int tam = 10001;
     int vetor[tam], n = 0;
     
     file = fopen("C:\\Users\\johnp\\OneDrive\\Desktop\\P4\\Ed1\\implementacoes ED1\\atvd1\\instancias-num\\num.10000.2.in", "r");
