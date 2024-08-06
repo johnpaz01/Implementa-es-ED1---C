@@ -65,7 +65,7 @@ void inserir_em_determinada_posicao(Lista *l) {
     printf("\nInsira a posição que você deseja inserir: ");
     scanf("%d", &pos);
 
-    if (pos > l->tamanho) {
+    if (pos > l->tamanho || pos < 0) {
         printf("\nPosição não está presente na lista\n");
         return;
     }
