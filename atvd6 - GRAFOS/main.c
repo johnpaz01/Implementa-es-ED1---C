@@ -53,9 +53,8 @@ void bsf(Grafo *g, int inicio, int destino)
 {
     printf("Iniciando busca em largura (BSF):\n");
 
-    // Verificar se os vértices estão dentro do limite
     if (inicio >= g->numVerticies || destino >= g->numVerticies || inicio < 0 || destino < 0) {
-        printf("Erro: vértice inicial ou destino fora do intervalo.\n");
+        printf("Erro: vertice inicial ou destino fora do intervalo.\n");
         return;
     }
 
@@ -63,7 +62,6 @@ void bsf(Grafo *g, int inicio, int destino)
     bool *visitado = (bool *)malloc(g->numVerticies * sizeof(bool));
     int *anterior = (int *)malloc(g->numVerticies * sizeof(int));
 
-    // Inicializando arrays
     for (int i = 0; i < g->numVerticies; i++) {
         visitado[i] = false;
         anterior[i] = -1;
@@ -89,7 +87,6 @@ void bsf(Grafo *g, int inicio, int destino)
             if (g->matriz_adj[vertice_atual][i] != 0 && !visitado[i]) {
                 fila[tras++] = i;
 
-                // Verificar se `tras` ultrapassa o limite
                 if (tras >= g->numVerticies) {
                     printf("Erro: Fila ultrapassou o limite!\n");
                     free(fila);
@@ -108,7 +105,7 @@ void bsf(Grafo *g, int inicio, int destino)
 
     if (!visitado[destino]) {
         printf("...\n...\n...\n");
-        printf("Não há caminho entre os vértices %d e %d.\n", inicio, destino);
+        printf("Nao ha caminho entre os vertices %d e %d.\n", inicio, destino);
     } else {
         printf("Caminho de %d para %d: ", inicio, destino);
         int atual = destino;
