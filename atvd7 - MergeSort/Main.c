@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>  // Adicionado para medição de tempo
 
 // Função para mesclar dois subarrays
 void merge(int arr[], int l, int m, int r) {
@@ -16,7 +17,7 @@ void merge(int arr[], int l, int m, int r) {
     for (int j = 0; j < n2; j++)
         R[j] = arr[m + 1 + j];
 
-    // Indices iniciais dos dois subarrays
+    // Índices iniciais dos dois subarrays
     int i = 0, j = 0;
 
     // Índice inicial do array mesclado
@@ -104,13 +105,30 @@ int main() {
         return 1;
     }
 
-    printf("Array original: \n");
-    printArray(arr, size);
+   /* printf("Array original: \n");
+    printArray(arr, size);*/
 
+    // Medição do tempo de execução do Merge Sort
+    clock_t start, end;
+    double cpu_time_used;
+
+    // Inicia a contagem do tempo
+    start = clock();
+
+    // Chama o mergeSort
     mergeSort(arr, 0, size - 1);
+
+    // Para a contagem do tempo
+    end = clock();
+
+    // Calcula o tempo total usado
+    cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
 
     printf("\nArray ordenado: \n");
     printArray(arr, size);
+
+    // Imprime o tempo gasto
+    printf("\nTempo gasto pelo Merge Sort: %f segundos\n", cpu_time_used);
 
     free(arr);  // Liberar memória alocada dinamicamente
     return 0;
